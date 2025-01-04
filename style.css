@@ -1,0 +1,1654 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audrey&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%; /* Make sure the body takes up the full viewport */
+    margin: 0; /* Remove default margin */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    background-color: #052d24;
+}
+
+
+body {
+    overflow-y: scroll;
+    overflow: hidden;
+    background-color: #052d24;
+}
+
+/* Ensure navigation bar is always visible */
+nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #052d24;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: #052d24;
+    color: #ffffff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+.links {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.link a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.link a:hover {
+    color: #007bff;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    color: rgb(255, 255, 255);
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+
+.hamburg {
+    cursor: pointer;;
+    font-size: 2rem;
+    display: none;
+    color: rgb(0, 0, 0);
+    position: relative;
+    z-index: 10;
+}
+
+.nav-container .links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    transition: none;
+}
+
+/* Remove transitions on links to prevent fading */
+.nav-container .links a {
+    font-size: 1rem;
+    color: rgb(230, 230, 230);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 5px;
+    /* Transition removed to avoid fading */
+}
+
+.nav-container .links a:hover {
+    color: #052d24;
+    background-color: rgb(248, 248, 248);
+}
+
+.nav-container .contact-btn {
+    padding: 5px 15px;
+    border-radius: 20px;
+    border: 2px solid rgb(109, 67, 0);
+    background-color: transparent;
+    font-weight: 500;
+    transition: 0.3s linear;
+}
+
+.nav-container .contact-btn:hover {
+    background-color: rgb(109, 67, 0);
+    color: white;
+}
+
+.dropdown {
+    display: none; /* Ensure it uses flex for layout */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.dropdown.open {
+    display: flex;
+    transform: translateY(0);
+}
+.dropdown .links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    gap: 20px;
+}
+.dropdown .links a {
+    font-size: 20px;
+    color: white;
+}
+
+.dropdown .links a:hover {
+    background-color: rgb(109, 67, 0);
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.cancel {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    z-index: 1001; /* Ensure it is on top of other elements */
+
+}
+
+
+
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.main-container .image {
+    width: 50%;
+}
+
+.main-container .image img {
+    width: 100%;
+    max-height: 80vh;
+}
+
+.main-container .content {
+    width: 40%;
+    text-align: left;
+    margin: 0%;
+    padding: 0%;
+    margin-top: 0%;
+}
+.main-container .content h1 {
+    margin: 0;
+    margin-top: 0%;
+    padding: 0;
+    line-height: 0; /* Tighten up the line spacing */
+}
+
+.content h1 {
+    font-size: clamp(1.5rem, 2vw, 3rem);
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.content h1 span {
+    color: rgb(255, 254, 252);
+    text-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+.content p {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    margin: 10px 0;
+}
+
+.content button {
+    width: 50%;
+    padding: 10px 20px;
+    margin: 20px 0;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.content button:hover {
+    background-color: transparent;
+    color: rgb(241, 241, 241);
+    border: 2px solid rgb(206, 206, 206);
+    box-shadow: 0 0 20px rgb(0, 0, 0);
+}
+
+.social-links i {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    background-color: transparent;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    color: rgb(113, 182, 110);
+    margin: 5px;
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+
+.social-links i:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(11, 87, 24);
+    box-shadow: 0 0 15px rgb(0, 0, 0);
+}
+
+/* Content container */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Styling for the name (Arkin Gonzaga) */
+h2 span {
+    font-family: 'Playfair Display', serif; /* Vogue-like font */
+    font-size: 5rem;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    margin-top: 0px;
+    letter-spacing: 2px;
+    display: inline-block; /* Ensures the name stays in one line */
+    white-space: nowrap; /* Prevents line breaks */
+    text-align: center; /* Center the text */
+}
+
+/* Typewriter effect text styling */
+.typewriter {
+    font-size: 1.5rem; /* Font size remains the same */
+    color: black;
+    font-weight: 500;
+    margin-top: -30px; /* Move the text upwards */
+    margin-bottom: 15px; /* Optional: Adjust spacing below */
+    text-align: center; /* Ensure the text stays centered */
+}
+
+.typewriter span {
+    white-space: nowrap;
+    font-size: 1rem;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+}
+
+/* Social links styling */
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-links a {
+    font-size: 2rem;
+    color: black;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: rgb(255, 255, 255);
+}
+
+/* Button styling */
+.btn button {
+    width: 180px; /* Adjust width */
+    height: 50px; /* Adjust height */
+    background-color: rgb(101, 202, 126);
+    color: rgb(0, 0, 0);
+    font-size: 1.2rem; /* Adjust font size */
+    padding: 10px; /* Add some padding */
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn button:hover {
+    background-color: #1b553d;
+    color: white;
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+#home {
+    height: 123vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden; /* Prevents extra scrollbars */
+    padding: 0;
+    margin: 0;
+    margin-top: -60px;
+    margin-bottom: 100px;
+    
+    
+    
+}
+#home h1 {
+    margin-bottom: 0%;
+    margin-top: 0px;
+    color: #ffffff;
+}
+
+/* Section styling (home section) */
+section {
+    width: 100%;
+    min-height: 100vh;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    overflow-y: auto;
+    scroll-margin-top: 10vh; /* Adjust to ensure sections align nicely */
+    transition: background-color 0.3s ease-in-out;
+}
+
+.arrow {
+    margin-left: 10px; /* Adds space between "About Me" and the arrow */
+}
+/* About Section Styling */
+#about {
+    height: 100vh;
+    margin-top: -200px;
+    padding: 50px 20px;
+    background-color: #052d24; /* Light background for contrast */
+    text-align: center;
+
+}
+.spacers {
+    height: 100px; /* Adds 100px space at the bottom */
+}
+.spacer {
+    height: 70px/* Adds 100px space at the bottom */
+
+
+}
+section, #about {
+    padding: 50px 20px;
+    background-color: #052d24;
+    text-align: center;
+    min-height: 100vh; /* Ensure sections take up at least the full viewport height */
+    box-sizing: border-box; /* Include padding in the height calculation */
+}
+
+.about-container {
+    max-width: 900px;
+    margin: 0 auto;
+    height: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Profile Image Styling */
+.profile-image img {
+    margin-top: 10px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgb(255, 255, 255); /* Accent border color */
+}
+
+
+/* About Details */
+.about-details h2 {
+    font-size: 2rem;
+    color: #ffffff; /* Match the theme */
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif; /* Replace Audrey with Playfair */
+}
+
+
+.about-details p {
+    font-size: 1rem;
+    color: #bbb4b4; /* Neutral text color */
+    line-height: 1.6;
+}
+
+/* Education and Experience Section */
+.education-experience {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; /* Ensures equal height for all children */
+    margin-top: 2rem;
+    gap: 2rem;
+}
+
+/* Education Section */
+.education, .experience {
+    position: relative;
+    display: block;
+    width: 120%; /* Standard width */
+    height: 420px;
+    background: #f0ece2;
+    border-radius: 10px;
+    overflow: visible;  /* Border radius to match the pseudo-element */
+}
+
+.education h3, .experience h3 {
+    font-family: 'Playfair Display', serif; /* Replace Audrey with Playfair */
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Divider-like Background Design */
+.education::before, .experience::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width of the parent */
+    height: 100%; /* Full height of the parent */
+    background: linear-gradient(135deg, #3b82f6, #1a1a1a); /* Gradient effect */
+    z-index: -1; /* Places it behind the content */
+    opacity: 0.7; /* Slight transparency */
+    border-radius: 10px; /* Matches the parent border-radius */
+    transform: scale(1.2); /* Makes the pseudo-element 20% bigger */
+    transform-origin: center; /* Keeps the scaling centered */
+}
+
+.education .school {
+    display: flex;
+    flex-direction: column; /* Stack the image and description vertically */
+    align-items: center; /* Center-align the content */
+    gap: 10px; /* Space between the image and the description */
+    margin-bottom: 1rem;
+}
+
+.education .school img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover;
+    border: 2px solid #000000; /* Optional border */
+}
+
+.education .school p {
+    font-size: 1rem;
+    color: #333;
+    margin: 0;
+    text-align: center; /* Aligns the text to the center */
+}
+
+/* Experience Section */
+.experience p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Divider Styling */
+.divider {
+    width: 1px;
+    background-color: #fdfdfd;
+    height: auto;
+    margin: 0 10px;
+}
+/* Experience Section Styling */
+.experience h3 {
+    font-size: 1.5rem;
+    color: #000000;
+    margin-bottom: 15px;
+}
+
+.experience ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px;
+}
+
+.experience li {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.experience li strong {
+    color: #000000; /* Highlight the titles */
+}
+
+.experience li {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+}
+
+
+
+.education,
+.experience {
+    width: 45%;
+}
+
+
+#contact {
+    background-color: #052d24;
+    padding: 60px 30px;
+    text-align: center;
+}
+
+.contact-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px;
+    margin-top: 40px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    box-shadow: 10 10 15px rgba(0, 0, 0, 0.966);
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #030303;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.contact-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap; /* Ensures content stacks on smaller screens */
+}
+
+.contact-info {
+    width: 45%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.contact-item i {
+    font-size: 2.5rem;
+    color: #527a4da1;
+}
+
+.contact-item div {
+    text-align: left;
+}
+
+.contact-item h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.contact-item p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.contact-form {
+    width: 45%;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+}
+
+.contact-form button {
+    padding: 15px 30px;
+    background-color: #052d24;
+    color: white;
+    border: 2px solid #052d24;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #ffffff;
+    color: #052d24;
+}
+
+
+#projects {
+    height: 100vh;
+    text-align: center;
+    padding: 560px 20px;
+    background-color: #052d24;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Ensures that the content is centered */
+}
+
+#projects h2 {
+    font-family: 'Playfair Display', serif; /* Replace Audrey with Playfair */
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 3rem;
+    margin-bottom: 40px;
+    text-align: center; /* Ensure the title is centered */
+    margin-top: -240px; /* Removes any extra margin above */
+}
+
+/* This ensures the project cards align next to each other */
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centers the content */
+    gap: 30px; /* Adds spacing between cards */
+    max-width: 1200px; /* Limits the width for better alignment */
+    margin: 0 auto; /* Centers the container */
+}
+
+.project-card {
+    width: 320px; /* Makes cards wider */
+    background: #f0f0f0; /* Card background */
+    border-radius: 0px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Softer shadow for a modern look */
+    overflow: hidden;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: scale(1.05); /* Zoom effect */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Light shadow on hover */
+}
+
+
+.project-card img {
+    width: 100%;  /* Makes the image responsive */
+    height: 150px; /* You can adjust the height as per your design */
+    object-fit: cover; /* Ensures the image covers the container without distortion */
+}
+
+.project-card h3 {
+    margin: 15px 0;
+    font-size: 1.4em;
+    color: #333; /* Darker text for contrast */
+}
+
+.tags {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding: 10px 0 20px 0; /* Adjust spacing */
+}
+
+
+.tags span {
+    background-color: #328b26a1;
+    color: rgb(255, 255, 255);
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Popup Modal */
+.project-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    overflow: auto; /* Enable scrolling for long content */
+    padding: 20px; /* Space around the popup for smaller screens */
+}
+
+.popup-content, h2{
+    color: #052d24;
+}
+.popup-content {
+    background: #fff;
+    color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px; /* Maximum width on larger screens */
+    width: 90%; /* Responsive width */
+    max-height: 90%; /* Prevent content from exceeding viewport height */
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow-y: auto; /* Scroll if content is too long */
+}
+
+.popup-content img {
+    max-width: 100%; /* Scale images proportionally */
+    max-height: 50vh; /* Limit height to half the viewport */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners */
+    margin-bottom: 15px;
+}
+
+.popup-content h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: #333;
+    word-wrap: break-word; /* Prevent long text overflow */
+}
+
+.popup-content .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.popup-content .tags span {
+    background: #6c757d;
+    color: #fff;
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.popup-content .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: #333;
+    cursor: pointer;
+    z-index: 1000;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-content .close:hover {
+    background: #f5f5f5;
+}
+
+/* Skills Section */
+#skills {
+    background-color: #052d24; /* Match the dark background */
+    color: #ffffff; /* White text */
+    height: 100vh;
+    text-align: center;
+    padding: 50px 20px 50px; /* Add space at the top */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+#skills{
+    padding-top: 100px;
+
+}
+.skills-heading {
+    margin-top: -50px;
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    color: white;
+    font-family: 'Playfair Display', serif; /* Replace Audrey with Playfair */
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    gap: 20px;
+}
+
+.skill-card {
+    background-color: #527a4da1; /* Slightly lighter background for cards */
+    color: #f3fff6;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 2 10px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: scale(1.06);
+}
+
+.skill-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+}
+
+.skill-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.skill-card p {
+    font-size: 1rem;
+    color: #ffffff; /* Muted text color */
+}
+
+/* Section Styling */
+#hobbies {
+    padding: 50px 20px;
+    background-color: #052d24;
+    text-align: center;
+    color: #ffffff;
+    position: relative; /* To allow absolute positioning of the title */
+}
+
+/* Title Styling */
+#hobbies h2 {
+    font-family: 'Playfair Display', serif; /* Replace Audrey with Playfair */
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-top: 77px;
+    margin-bottom: 1000px;
+    position: absolute; /* Position the title absolutely */
+    top: 0; /* Move the title to the top */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    margin-bottom: 0px; /* Space between title and content below */
+}
+
+/* Hobbies Container */
+.hobbies-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+    gap: 20px;
+    margin-top: 150px; /* Add space between title and the hobby items */
+}
+
+/* Hobby Card */
+.hobby {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hobby:hover {
+    transform: scale(1.05); /* Zoom effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Hobby Image */
+.hobby img {
+    width: 130%;
+    height: 180px; /* Rectangle shape */
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.hobby:hover img {
+    transform: scale(1.1); /* Zooms in on hover */
+}
+
+/* Hobby Title */
+.hobby p {
+    position: absolute;
+    top: 0; /* Start from the top of the image */
+    left: 0; /* Align to the left of the image */
+    width: 100%; /* Make the background cover the entire width */
+    height: 100%; /* Make the background cover the entire height of the image */
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    color: #ffffff;
+    display: flex; /* Use flexbox to center the text */
+    justify-content: center; /* Horizontally center the text */
+    align-items: center; /* Vertically center the text */
+    font-size: 1rem;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.hobby:hover p {
+    opacity: 1; /* Title appears on hover */
+}
+
+
+
+
+
+
+
+@media (max-width: 425px) {
+    body {
+        overflow-x: hidden;
+        margin: 0;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center; /* Center the navigation container */
+        align-items: center; /* Vertically center elements */
+        width: 100%;
+        background-color: #052d24; /* Match the overall theme */
+        padding: 10px;
+    }
+
+    
+    .nav-container {
+        display: flex;
+        justify-content: center;
+        padding: 10px 15px; /* Reduce padding */
+    }
+
+    .logo {
+        font-size: 1.5rem; /* Smaller logo for mobile */
+    }
+
+    .nav-container .links {
+        display: flex; /* Use flexbox to make links inline */
+        justify-content: center;
+        align-items: center;
+        gap: 15px; /* Add space between the links */
+    }
+
+    /* Make links smaller */
+    .nav-container .links a {
+        font-size: 12px; /* Reduce font size */
+        padding: 5px 8px; /* Smaller padding */
+        color: white;
+        display: inline-block;
+    }
+
+    .nav-container .links a:hover {
+        background-color: rgb(248, 248, 248);
+        color: #052d24;
+    }
+
+    .hamburg {
+        display: none; /* Show hamburger menu */
+    }
+
+    .nav-container .links {
+        display: block; /* Hide links by default */
+    }
+
+    /* Dropdown adjustments */
+    .dropdown .links a {
+        font-size: 14px; /* Smaller font size */
+        padding: 6px 12px; /* Adjust padding */
+    }
+
+    /* Ensure the dropdown takes up the full screen width */
+    .dropdown.open {
+        transform: translateY(0);
+    }
+
+    .dropdown .links {
+        gap: 15px; /* Smaller gap between items */
+    }
+
+  
+
+    #home {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+    .main-container {
+        padding: 10px; /* Reduce padding for smaller screens */
+        width: 100%; /* Ensure it takes up full width */
+    }
+
+    /* Adjust image */
+    .main-container .image {
+        width: 100%; /* Ensure image takes full width */
+    }
+
+    .main-container .image img {
+        width: 100%;
+        height: auto; /* Remove max-height to keep aspect ratio intact */
+    }
+
+    /* Content adjustments */
+    .main-container .content {
+        width: 100%;
+        text-align: center; /* Center the text */
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Heading adjustments */
+    .content h1 {
+        font-size: 1.5rem; /* Smaller font size */
+        line-height: 1.2;
+        margin-bottom: 0px;
+    }
+    #home h1 {
+        font-size: 18rem; /* Set a smaller font size */
+        margin-top: 0; /* Remove top margin */
+        margin-bottom: 10px; /* Optional: Adjust bottom margin */
+        padding: 0; /* Remove padding if any */
+    }
+    /* H2 (name) size adjustment */
+    h2 span {
+        font-size: 2.5rem; /* Adjusted font size */
+        letter-spacing: 1px;
+        margin-top: 0; /* Remove top margin */
+        margin-bottom: 5px; /* Reduced bottom margin */
+        padding: 0; /* Remove padding */
+    }
+
+    /* Typewriter text adjustments */
+    .typewriter {
+        font-size: 1.2rem; /* Smaller font size */
+        margin-top: -30px;
+        margin-bottom: 15px;
+    }
+
+    .typewriter span {
+        font-size: 12px; 
+        margin-top: 0; /* Remove top margin */
+        margin-bottom: 10px; /* Reduced bottom margin */
+        padding: 0;
+    }
+
+    /* Social links styling */
+    .social-links {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 15px; /* Smaller gap between icons */
+    }
+
+    .social-links i {
+        font-size: 1.5rem; /* Smaller social media icons */
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    /* Button adjustments */
+    .content button {
+        width: 90%; /* Make button wider on mobile */
+        padding: 12px 0;
+        font-size: 1rem; /* Adjust font size */
+    }
+
+    .btn button {
+        width: 140px; /* Make button smaller */
+        height: 45px;
+        font-size: 1rem; /* Smaller button text */
+    }
+
+    /* Home section adjustments */
+    #home {
+        height: auto; /* Remove fixed height */
+        margin-top: 0;
+        padding: 0 15px; /* Add some padding for mobile */
+        margin-bottom: 50px; /* Space for scrolling */
+    }
+
+    /* Ensure sections are centered and content is responsive */
+    section {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px 10px; /* Adjust padding */
+        overflow-y: auto;
+        scroll-margin-top: 10vh;
+    }
+
+    /* Adjust any additional padding or margins */
+    .arrow {
+        margin-left: 5px; /* Reduce gap for arrows */
+    }
+
+    /* Make sure social links do not overflow */
+    .social-links i {
+        font-size: 1.2rem; /* Further reduce social link icon size */
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .btn button {
+        width: 80%;
+        font-size: -0.8rem;
+    }
+    .profile-image img {
+        width: 80%;  /* Increase width to 80% of the container */
+        max-width: 350px;  /* Limit max width to 350px */
+        height: auto;  /* Maintain aspect ratio */
+        border-radius: 50%;  /* Circular image */
+        object-fit: cover;   /* Make sure the image fits nicely */
+        margin-top: 300px;  /* Add space on top */
+    }
+
+    .hobbies-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 0 10px;
+    }
+
+    .hobby img {
+        width: 100%;
+        height: auto;
+    }
+    .hobby p {
+        position: absolute;
+        top: 0; /* Start from the top of the image */
+        left: 0; /* Align to the left of the image */
+        width: 100%; /* Make the background cover the entire width */
+        height: 100%; /* Make the background cover the entire height of the image */
+        background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+        color: #ffffff;
+        display: flex; /* Use flexbox to center the text */
+        justify-content: center; /* Horizontally center the text */
+        align-items: center; /* Vertically center the text */
+        font-size: 1rem;
+        font-weight: bold;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .skills-heading {
+        margin-top: 300px;
+        font-size: 3rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 50px;
+        color: white;
+        font-family: 'Playfair Display', serif; /* Replace Audrey with Playfair */
+    }
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 0 15px;
+    }
+
+    .skill-card {
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+
+    .projects-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .project-card {
+        font-size: 0.9rem;
+    }
+    #projects h2 {
+        font-family: 'Playfair Display', serif; /* Replace Audrey with Playfair */
+        color: #ffffff;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 3rem;
+        margin-bottom: 40px;
+        text-align: center; /* Ensure the title is centered */
+        margin-top: 300px; /* Removes any extra margin above */
+    }
+    
+    #contact {
+        padding: 0px 15px; /* Reduce padding for smaller screens */
+        max-height: 100vh; /* Ensure it's still scrollable */
+        overflow-y: auto; /* Enable vertical scroll */
+    }
+    .contact-form {
+        width: 100%; /* Make the form container full-width on mobile */
+        min-height: 00px; /* Set a minimum height for the mobile form */
+        padding: 20px; /* Add some padding inside */
+    }
+    .contact-container {
+        padding: 20px;
+        margin-top: 500px;
+    }
+
+    /* Target only h2 inside #contact */
+    #contact h2 {
+        font-size: 1.8rem; /* Make the title font size smaller */
+        margin-bottom: 15px;
+        margin-top: 20px;
+    }
+
+    /* Target only p inside #contact */
+    #contact p {
+        font-size: 1rem; /* Make the paragraph text smaller */
+        margin-bottom: 20px;
+    }
+
+    .contact-content {
+        flex-direction: column; /* Stack the contact info and form vertically */
+        gap: 20px;
+    }
+
+    .contact-info,
+    .contact-form {
+        width: 100%; /* Make both contact info and form full width on mobile */
+    }
+
+    .contact-item {
+        flex-direction: column; /* Stack icon and text vertically */
+        align-items: flex-start; /* Align items to the left */
+        gap: 10px;
+    }
+
+    .contact-item i {
+        font-size: 2rem; /* Adjust icon size */
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 0.9rem; /* Smaller input font size */
+    }
+
+    .contact-form button {
+        padding: 12px 25px; /* Smaller button padding */
+        font-size: 0.9rem; /* Smaller button text */
+    }
+    @media (max-width: 375px) {
+        .nav-container .links a {
+            font-size: 11px; /* Further reduce font size for 375px */
+            padding: 4px 6px; /* Smaller padding */
+        }
+    }
+
+    @media (max-width: 320px) {
+        .nav-container .links a {
+            font-size: 10px; /* Make links even smaller */
+            padding: 3px 5px; /* Very small padding */
+        }
+    }
+}
+
+
+
+
+
+@media (max-width: 768px) {
+    /* General adjustments for phone mode */
+    body {
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
+
+    section {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+        box-sizing: border-box;
+        scroll-snap-align: start;
+        overflow-y: auto; /* Allow vertical scrolling within each section */
+    }
+
+    /* Home section adjustments */
+    #home {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; /* Ensure home section takes up the full height of the screen */
+        padding: 20px;
+        text-align: center;
+        box-sizing: border-box;
+        background-color: #052d24; /* Add a background color for contrast */
+        margin: 0;
+        overflow: hidden; /* Prevent overflow */
+    }
+
+    /* Main heading adjustments */
+    #home h1 {
+        font-size: 1.8rem; /* Smaller font size for mobile */
+        color: white;
+        margin-bottom: 10px;
+        max-width: 90%; /* Ensure text fits inside screen */
+        line-height: 1.3;
+    }
+
+    /* Paragraph adjustments */
+    #home p {
+        font-size: 1rem; /* Adjust font size for mobile */
+        color: #bbb4b4;
+        line-height: 1.5;
+        max-width: 90%; /* Limit paragraph width */
+        margin-bottom: 15px;
+        padding: 0 10px; /* Add padding for better fit */
+    }
+
+    /* Adjust icons size */
+    .home-icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px; /* Spacing between icons */
+        margin-top: 20px;
+    }
+
+    .home-icons i {
+        font-size: 2rem; /* Smaller icon size for mobile */
+        color: white;
+        transition: color 0.3s ease;
+    }
+
+    .home-icons i:hover {
+        color: #ff6347; /* Hover effect for icons */
+    }
+
+    /* Button styling */
+    .btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+        width: 100%; /* Full width for button */
+        max-width: 300px; /* Limit button width */
+        margin-top: 20px;
+        color: white;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+        background-color: #052d24; /* Hover effect for button */
+    }
+
+    /* Image responsiveness */
+    #home img {
+        width: 70%; /* Adjust image width */
+        max-width: 280px; /* Ensure image doesn't exceed the screen width */
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    /* Ensure content is spaced properly */
+    .home-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    /* About section adjustments */
+    #about {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 0;
+        margin: 0;
+        background-color: #052d24;
+    }
+
+    /* About container */
+    .about-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        text-align: center;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .profile-image img {
+        width: 80%;  /* Increase width to 80% of the container */
+        max-width: 350px;  /* Limit max width to 350px */
+        height: auto;  /* Maintain aspect ratio */
+        border-radius: 50%;  /* Circular image */
+        object-fit: cover;   /* Make sure the image fits nicely */
+        margin-top: 1090px;  /* Add space on top */
+    }
+
+    /* About Details */
+    .about-details h2 {
+        font-size: 1.8rem;
+        color: #ffffff;
+        margin-bottom: 20px;
+        font-family: 'Playfair Display', serif;
+    }
+
+    .about-details p {
+        font-size: 1rem;
+        color: #bbb4b4;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    /* Education and Experience Section */
+    .education-experience {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-top: 2rem;
+    }
+
+    .education,
+    .experience {
+        display: block;
+        width: 90%; /* Reduce width for mobile */
+        max-width: 350px;
+        height: auto;
+        background: #f0ece2;
+        border-radius: 10px;
+        padding: 15px;
+    }
+
+    /* Divider Styling */
+    .divider {
+        width: 100%;
+        background-color: #fdfdfd;
+        height: 2px;
+        margin: 20px 0;
+    }
+    .skills-heading {
+        margin-top: 20px;
+        font-size: 3rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 50px;
+        color: white;
+        font-family: 'Playfair Display', serif; /* Replace Audrey with Playfair */
+    }
+    /* Navbar for mobile */
+    .hamburg {
+        display: none !important;
+        position: absolute;
+        top: 25px;
+        right: 45px;
+        font-size: 2rem;
+        cursor: pointer;
+        color: white;
+        transition: color 0.2s ease;
+    }
+
+    .hamburg:hover {
+        color: #000000;
+    }
+
+    /* Image adjustments for mobile */
+    img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
+    }
+
+    /* Buttons */
+    button {
+        width: 100%;
+        padding: 15px;
+        font-size: 1rem;
+        border-radius: 5px;
+        border: none;
+        background-color: #527a4da1;
+        color: white;
+        cursor: pointer;
+        margin: 10px 0;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #1b553d;
+    }
+
+    /* Popup modal adjustments */
+    .popup-content {
+        max-width: 95%;
+        padding: 15px;
+    }
+
+    .popup-content img {
+        max-height: 40vh;
+    }
+    .links {
+        display: none;
+    }
+
+    /* Show hamburger menu in mobile */
+    .hamburg {
+        display: block;
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
+    }
+
+    /* Show dropdown when open */
+    .dropdown {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .dropdown.open {
+        display: flex; /* Show the dropdown when active */
+    }
+
+    .cancel {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
+    }
+    .dropdown .links {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .dropdown .links a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.5rem;
+        transition: color 0.3s;
+    }
+
+    .dropdown .links a:hover {
+        color: #007bff;
+    }
+}
